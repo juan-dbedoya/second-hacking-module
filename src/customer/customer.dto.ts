@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { IsOptional, IsString, IsUUID } from 'class-validator';
 import { customerInterface } from './customer.interface';
 export class CustomerDto implements customerInterface {

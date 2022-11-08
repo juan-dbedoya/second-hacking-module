@@ -14,7 +14,7 @@ import { CustomerService } from './customer.service';
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
-  @Get('get')
+  @Get(':uuid')
   getById(@Param('uuid') uuid: string): CustomerDto | undefined {
     return this.customerService.GetById(uuid);
   }
@@ -26,7 +26,7 @@ export class CustomerController {
   update(@Body() customerUpdated: CustomerDto): CustomerDto | undefined {
     return this.customerService.UpdateCustomer(customerUpdated);
   }
-  @Delete('delete')
+  @Delete(':uuid')
   deleteById(@Param('uuid') uuid: string): void {
     this.customerService.DeleteCustomerById(uuid);
   }

@@ -14,7 +14,7 @@ import { InvoiceDto } from './invoice.dto';
 export class InvoiceController {
   constructor(private readonly invoiceService: InvoiceService) {}
 
-  @Get('get')
+  @Get(':uuid')
   getById(@Param('uuid') uuid: string): InvoiceDto | undefined {
     return this.invoiceService.GetById(uuid);
   }
@@ -26,7 +26,7 @@ export class InvoiceController {
   update(@Body() invoice: InvoiceDto): InvoiceDto | undefined {
     return this.invoiceService.UpdateInvoice(invoice);
   }
-  @Delete('delete')
+  @Delete(':uuid')
   delete(@Param('uuid') uuid: string): void {
     return this.invoiceService.DeleteInvoice(uuid);
   }
